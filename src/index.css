@@ -7,6 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to left, #0f0c29 10%, #302b63, #24243e 90%);
+  color: blanchedalmond;
 }
 
 code {
