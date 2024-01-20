@@ -1,11 +1,12 @@
 import { Container } from 'components/Container/Container';
+import TrendingMovies from 'components/TrendingMovies/TrendingMovies';
 
 const Home = () => {
   return (
     <main>
       <section>
         <Container>
-          This is the place where will be the movies which are in trend!
+          <TrendingMovies />
         </Container>
       </section>
     </main>
