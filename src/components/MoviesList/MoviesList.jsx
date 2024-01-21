@@ -9,7 +9,7 @@ const MoviesList = ({ movies }) => {
         return (
           <Item key={movie.id}>
             {
-              <LinkItem to={`${movie.id}`}>
+              <LinkItem to={`/movies/${movie.id}`}>
                 <MovieItem {...movie} />
               </LinkItem>
             }

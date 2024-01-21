@@ -57,6 +57,7 @@ export const theme = {
   radii: {
     none: '0',
     normal: '5px',
+    big: '20px',
     round: '50%',
   },
 

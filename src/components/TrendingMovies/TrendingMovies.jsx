@@ -1,7 +1,8 @@
+import toast from 'react-hot-toast';
+
 import { useTrendingTodayMovies } from 'hooks/useTrendingMovies';
 import { Loader } from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
-import NotifyError from 'components/Notification/Notification';
 import { Title } from './TrendingMovies.styled';
 
 const TrendingMovies = () => {
@@ -15,7 +16,7 @@ const TrendingMovies = () => {
         <MoviesList movies={trendingMovies} linkTo="movies" />
       )}
 
-      {error && <NotifyError />}
+      {error && toast.error('Something went wrong. 😔 Try again.')}
 
       {loaded && <Loader />}
     </>

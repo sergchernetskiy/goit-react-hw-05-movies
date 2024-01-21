@@ -48,17 +48,18 @@ const MovieCard = ({
         </WrapperImage>
 
         <Info>
-          <MovieName>
-            {title} || {original_title}
-          </MovieName>
-          <Text>Release {release_date}</Text>
-          <Text>Vote average {vote_average}</Text>
-          <Text>Vote count {vote_count}</Text>
+          {{ title } ? (
+            <MovieName>{title}</MovieName>
+          ) : (
+            <MovieName>{original_title}</MovieName>
+          )}
+          <Text>Release: {release_date}</Text>
+          <Text>Vote average: {vote_average}</Text>
+          <Text>Vote count: {vote_count}</Text>
           <Overview>Overview</Overview>
           <Text>{overview ? overview : 'No overview'}</Text>
           <Genres>Genres</Genres>
           <Text>{getGenres(genres)}</Text>
-
           <Wrapper>
             <AdditionalInfo>Additional information:</AdditionalInfo>
             <AdditionalInfoList>
