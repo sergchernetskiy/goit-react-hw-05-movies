@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { getMovies } from 'service/movie-service';
 
-export const useMovieDetails = () => {
-  const [movie, setMovie] = useState(null);
+export const useCast = () => {
+  const [actors, setActors] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
@@ -14,9 +14,9 @@ export const useMovieDetails = () => {
       try {
         setLoading(true);
 
-        const dataMovie = await getMovies(`/movie/${movieId}`);
+        const { cast } = await getMovies(`/movie/${movieId}/credits`);
 
-        setMovie(dataMovie);
+        setActors([...cast]);
       } catch (error) {
         setError(error);
       } finally {
@@ -27,5 +27,5 @@ export const useMovieDetails = () => {
     fetch();
   }, [movieId]);
 
-  return { movie, loading, error };
+  return { actors, loading, error };
 };

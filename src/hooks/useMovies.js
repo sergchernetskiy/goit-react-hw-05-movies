@@ -7,7 +7,7 @@ import { getMovies } from 'service/movie-service';
 export const useMovies = () => {
   const [movieQuery, setMovieQuery] = useState('');
   const [movies, setMovies] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
@@ -16,18 +16,10 @@ export const useMovies = () => {
     const searchQuery = async () => {
       try {
         if (query === '') {
-          toast('Sorry, search query can not be empty! Try another query.', {
-            icon: '🍳',
-            style: {
-              borderRadius: '10px',
-              background: '#56CCF2',
-              color: '#fff',
-            },
-          });
           return;
         }
 
-        setLoaded(true);
+        setLoading(true);
 
         const dataMoviesList = await getMovies(`/search/movie?query=${query}`);
 
@@ -52,7 +44,7 @@ export const useMovies = () => {
       } catch (error) {
         setError(error);
       } finally {
-        setLoaded(false);
+        setLoading(false);
       }
     };
 
@@ -63,7 +55,7 @@ export const useMovies = () => {
     movieQuery,
     setMovieQuery,
     movies,
-    loaded,
+    loading,
     error,
     setSearchParams,
     query,

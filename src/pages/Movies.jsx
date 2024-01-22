@@ -18,7 +18,7 @@ const Movies = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const normalizedValue = e.target.elements.query.value.toLowerCase();
+    const normalizedValue = e.target.elements.query.value.trim().toLowerCase();
     const nextSearchParams =
       movieQuery !== '' ? { query: normalizedValue } : {};
     setSearchParams(nextSearchParams);
