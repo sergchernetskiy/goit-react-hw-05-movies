@@ -18,7 +18,6 @@ export const useReviews = () => {
 
         setReviews(results);
       } catch (error) {
-        console.log(error.message);
         setError(error);
       } finally {
         setLoading(false);

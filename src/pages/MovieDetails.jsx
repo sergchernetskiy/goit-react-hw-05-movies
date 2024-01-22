@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import toast from 'react-hot-toast';
 
 import { Container } from 'components/Container/Container';
@@ -5,6 +6,7 @@ import { Loader } from 'components/Loader/Loader';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { useMovieDetails } from 'hooks/useMovieDetails';
 import { getMovieGenres } from 'service/getMovieGenres';
+import { Outlet } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { movie, loading, error } = useMovieDetails();
@@ -18,6 +20,9 @@ const MovieDetails = () => {
           {loading && <Loader />}
         </Container>
       </section>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

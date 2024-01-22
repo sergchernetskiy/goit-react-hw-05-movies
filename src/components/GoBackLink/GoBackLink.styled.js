@@ -17,7 +17,7 @@ export const GoBackLink = styled(Link)`
 
   :hover,
   :focus {
-    color: ${p => p.theme.colors.red};
+    color: ${p => p.theme.colors.yellow};
   }
 
   text-decoration: none;

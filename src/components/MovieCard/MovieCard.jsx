@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import image from 'images/no-image-available.jpg';
@@ -29,9 +31,12 @@ const MovieCard = ({
   },
   getGenres,
 }) => {
+  const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
+
   return (
     <>
-      <GoBackLink>
+      <GoBackLink to={backLinkLocationRef.current}>
         <p>Go back</p>
       </GoBackLink>
 
