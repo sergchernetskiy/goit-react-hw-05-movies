@@ -18,9 +18,9 @@ const ActorsList = ({ actors }) => {
             <WrapperImg>
               <img
                 src={
-                  { profile_path }
+                  profile_path
                     ? `https://image.tmdb.org/t/p/w500/${profile_path}`
-                    : { image }
+                    : image
                 }
                 alt={name}
               />
