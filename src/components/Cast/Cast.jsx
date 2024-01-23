@@ -13,6 +13,9 @@ const Cast = () => {
       <section>
         <Container>
           {actors && actors.length > 0 && <ActorsList actors={actors} />}
+          {actors && actors.length === 0 && (
+            <div>We don`t have any casts for this movie.</div>
+          )}
           {error && toast.error('Something went wrong. 😔 Try again.')}
           {loading && <Loader />}
         </Container>

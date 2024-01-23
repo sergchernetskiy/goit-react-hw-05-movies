@@ -3,11 +3,13 @@ import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
+
 const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
-const Cast = lazy(() => import('pages/Cast'));
-const Reviews = lazy(() => import('pages/Reviews'));
+const Cast = lazy(() => import('components/Cast/Cast'));
+const Reviews = lazy(() => import('components/Reviews/Reviews'));
+const NotFound = lazy(() => import('pages/NotFound'));
 
 export const App = () => {
   return (
@@ -22,7 +24,7 @@ export const App = () => {
             <Route path="reviews" element={<Reviews />} />
           </Route>
 
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
